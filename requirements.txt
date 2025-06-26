@@ -1,0 +1,10 @@
+streamlit
+re
+pandas
+numpy
+matplotlib
+seaborn
+string
+IPython
+wordcloud
+pycaret
