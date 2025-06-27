@@ -248,7 +248,7 @@ with st.sidebar:
 
     st.sidebar.header('INFORMATION')
     st.sidebar.write('Vo Minh Tri')
-    st.sidebar.write('Email:')
+    st.sidebar.write('Email: trivm203@gmail.com')
     st.sidebar.write('Pham Thi Thu Thao')
     st.sidebar.write('Email: thaofpham@gmail.com')
 
