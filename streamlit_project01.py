@@ -234,7 +234,7 @@ st.set_page_config(
 
 #------- Giao diện Streamlit -----
 #Hình ảnh đầu tiên
-st.image('images/channels4_banner.jpg', use_container_width=True)
+st.image('images/channels4_banner.jpg')
 
 # 3 tab nằm ngang
 tab1, tab2, tab3 = st.tabs(["BUSINESS OVERVIEWS", "BUIL PROJECT", "NEW PREDICT"])
