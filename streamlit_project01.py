@@ -7,7 +7,7 @@ import seaborn as sns
 import string
 from IPython.display import display
 from wordcloud import WordCloud
-from pycaret.classification import load_model, predict_model
+import joblib
 
 
 #------- Tạo công thức cho xuất đầu ra -----
@@ -177,7 +177,7 @@ def show_company_cluster(company_name: str):
 # Tạo đầu ra sentiment khi nhập từ khóa hay tên công ty
 
 # Load model
-svm_loaded = load_model('svm_model')
+svm_loaded = joblib.load("svm_tfidf_pipeline.pkl")
 
 def show_company_sentiment(company_name: str, df_sentiment):
     # Lọc dữ liệu công ty
@@ -234,7 +234,7 @@ st.set_page_config(
 
 #------- Giao diện Streamlit -----
 #Hình ảnh đầu tiên
-st.image('images/channels4_banner.jpg')
+st.image('images/channels4_banner.jpg', use_container_width=True)
 
 # 3 tab nằm ngang
 tab1, tab2, tab3 = st.tabs(["BUSINESS OVERVIEWS", "BUIL PROJECT", "NEW PREDICT"])
@@ -313,9 +313,8 @@ with tab3:
         # Giả sử bạn dự đoán với 1 text
         if st.button("Dự đoán"):
             if search.strip() != "":
-                input_df = pd.DataFrame({'text': [search]})
-                preds = predict_model(svm_loaded, data=input_df)
-                st.write(preds)
+                preds = svm_loaded.predict([search])  # <-- chỉ cần truyền list hoặc Series text
+                st.write(f"Dự đoán: {preds[0]}")
             else:
                 st.warning("Vui lòng nhập bình luận trước khi dự đoán.")
         
