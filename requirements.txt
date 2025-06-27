@@ -2,7 +2,7 @@ setuptools>=42
 wheel
 build
 streamlit==1.26.0
-pandas==2.0.3
+pandas==1.5.3
 numpy==1.24.4
 matplotlib
 seaborn
